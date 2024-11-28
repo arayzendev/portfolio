@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio - À propos</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Fond animé transparent */
+        .bg-animated {
+            background: url('https://wykop.pl/cdn/c3201142/comment_wkv94ijTbKFtP8jmry3bPtFcyGG4NKrX.gif') center / cover no-repeat;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Navbar avec fond transparent et texte en blanc */
+        nav {
+            background-color: rgba(0, 0, 0, 0.1); /* Fond noir semi-transparent */
+            color: white; /* Texte blanc */
+            z-index: 10; /* Assure que la navbar reste au-dessus du contenu */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Ajoute une ombre subtile sous la navbar */
+        }
+
+        nav a {
+            color: white; /* Lien en blanc */
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #5D82EE; /* Bleu au survol */
+        }
+
+        /* Section À propos */
+        .about-card {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .about-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .about-description {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .about-link {
+            background-color: #5D82EE;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-right: 10px; /* Espace entre les boutons */
+        }
+
+        .about-link:hover {
+            background-color: #4e72c6;
+        }
+
+        /* Mise en page de la section À propos */
+        .about-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 150px auto 100px;  /* Ajout de 150px de marge en haut pour éloigner de la navbar */
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        /* Boutons côte à côte */
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px; /* Un peu d'espace au-dessus des boutons */
+        }
+
+        /* Footer positionné en bas */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        footer a {
+            color: #5D82EE;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Fond animé -->
+    <div class="bg-animated"></div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full top-0 left-0 py-6">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Alexandre</h1>
+            <ul class="flex space-x-8">
+                <li><a href="index.html" class="hover:text-blue-500">Accueil</a></li>
+                <li><a href="projets.html" class="hover:text-blue-500">Projets</a></li>
+                <li><a href="#about" class="hover:text-blue-500">À Propos</a></li>
+                <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Section À propos -->
+    <section id="about" class="about-container">
+        <div class="about-card">
+            <h3 class="about-title">Qui suis-je ?</h3>
+            <p class="about-description">
+                Je suis un étudiant passionné par la programmation et les technologies web. Mon objectif est de créer des applications robustes et intuitives. 
+                Actuellement en deuxième année à CESI, je me spécialise dans les langages comme C++, Python, et le développement web.
+            </p>
+            <div class="social-buttons">
+                <a href="https://github.com/alexandre-lin" class="about-link" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/alexandre-lin" class="about-link" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+
+        <div class="about-card">
+            <h3 class="about-title">Mon Parcours</h3>
+            <p class="about-description">
+                Depuis mon plus jeune âge, j'ai toujours été fasciné par l'informatique. Après un BAC en sciences et technologies du numérique, j'ai décidé de me lancer dans une carrière d'ingénieur logiciel. 
+                Grâce à mes études à CESI, j'ai acquis une solide base théorique et pratique qui me permet de concevoir des solutions innovantes.
+            </p>
+            <div class="social-buttons">
+                <a href="https://github.com/alexandre-lin" class="about-link" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/alexandre-lin" class="about-link" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+
+        <div class="about-card">
+            <h3 class="about-title">Mes Compétences</h3>
+            <p class="about-description">
+                Je maîtrise plusieurs langages de programmation tels que C++, Python, HTML/CSS, et JavaScript. De plus, je suis familiarisé avec des outils et technologies comme Git, SQL, et Node.js.
+                Je suis toujours à la recherche de nouveaux défis pour enrichir mes compétences et développer des projets ambitieux.
+            </p>
+            <div class="social-buttons">
+                <a href="https://github.com/alexandre-lin" class="about-link" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/alexandre-lin" class="about-link" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Mon Portfolio. Tous droits réservés. <a href="https://www.linkedin.com" target="_blank">LinkedIn</a> | <a href="https://github.com" target="_blank">GitHub</a></p>
+    </footer>
+
+</body>
+</html>
