@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <title>Mon Portfolio - À Propos</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
         /* Fond animé transparent */
@@ -27,7 +27,6 @@
 
         nav a {
             position: relative;
-            display: inline-block;
             color: white; /* Lien en blanc */
             text-decoration: none;
             margin: 0 20px;
@@ -43,7 +42,7 @@
             position: absolute;
             width: 0;
             height: 2px;
-            background-color: #5D82EE; /* Nouveau bleu */
+            background-color: #5D82EE; /* Bleu */
             bottom: -5px;
             left: 0;
             transition: width 0.3s ease;
@@ -65,77 +64,79 @@
             background-color: #5D82EE;
         }
 
-        /* Section de contact */
-        .contact-container {
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            max-width: 600px;
-            margin: 150px auto; /* Centré avec un espace par rapport à la navbar */
+        /* Section principale */
+        .about-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 150px auto 100px; /* Espace entre la navbar et la section */
+            max-width: 1200px;
+            padding: 20px;
         }
 
-        .contact-container h1 {
-            font-size: 2.5rem;
+        .about-card {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .about-title {
+            font-size: 2rem;
             font-weight: bold;
             margin-bottom: 20px;
+        }
+
+        .about-description {
+            font-size: 1rem;
+            line-height: 1.6;
             text-align: center;
         }
 
-        .contact-container input, 
-        .contact-container textarea {
-            width: 100%;
-            padding: 15px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        .contact-container button {
-            background-color: #5D82EE;
-            color: white;
-            padding: 12px 25px;
-            font-weight: bold;
-            border-radius: 5px;
+        .about-link {
             margin-top: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            box-shadow: 0 5px 15px rgba(93, 130, 238, 0.3);
-            transition: background-color 0.3s, transform 0.2s;
-            cursor: pointer;
-            width: 100%;
+            background-color: #5D82EE;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
 
-        .contact-container button:hover {
+        .about-link:hover {
             background-color: #4e72c6;
-            transform: translateY(-3px);
         }
 
-        /* Footer mis à jour */
+        /* Footer positionné en bas */
         footer {
-    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent harmonisé avec les cartes projet */
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 50px; /* Espacement entre le contenu principal et le footer */
-    width: 100%;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2); /* Ombre subtile pour un effet élégant */
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-}
+            background-color: #00000047;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
 
-footer a {
-    color: #5D82EE; /* Couleur bleue harmonisée avec les liens principaux */
-    text-decoration: none;
-    font-weight: bold;
-}
+        footer a {
+            color: #5D82EE;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-footer a:hover {
-    color: white; /* Changement de couleur au survol */
-}
-
+        footer a:hover {
+            color: white;
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -150,32 +151,57 @@ footer a:hover {
                 Alexandre<span style="color: #5D82EE;">.</span>
             </h1>
             <ul class="flex space-x-8">
-                <li><a href="#home" class="hover:text-blue-500 active">Accueil</a></li>
+                <li><a href="index.html" class="hover:text-blue-500">Accueil</a></li>
                 <li><a href="proj.html" class="hover:text-blue-500">Projets</a></li>
-                <li><a href="Iam.html" class="hover:text-blue-500">À Propos</a></li>
+                <li><a href="Iam.html" class="hover:text-blue-500 active">À Propos</a></li>
                 <li><a href="contact.html" class="hover:text-blue-500">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Section de contact -->
-    <div class="contact-container">
-        <h1>Me Contacter</h1>
-        <form>
-            <label for="name">Nom complet</label>
-            <input type="text" id="name" name="name" placeholder="Votre nom" required>
-            <label for="email">Adresse e-mail</label>
-            <input type="email" id="email" name="email" placeholder="Votre email" required>
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Votre message" rows="5" required></textarea>
-            <button type="submit">Envoyer</button>
-        </form>
-    </div>
+    <!-- Section À Propos -->
+    <section id="about" class="about-container">
+        <div class="about-card">
+            <h3 class="about-title">Mon Parcours</h3>
+            <p class="about-description">
+                Étudiant en ingénierie à CESI, passionné par la technologie et l'innovation.
+                J'explore les domaines de la programmation, de l'IA et du développement embarqué.
+            </p>
+        </div>
+
+        <div class="about-card">
+            <h3 class="about-title">Mes Compétences</h3>
+            <p class="about-description">
+                C++, Python, Développement Web (HTML, CSS, JS, Tailwind). Expériences en projets embarqués
+                et implémentation d'algorithmes d'intelligence artificielle.
+            </p>
+        </div>
+
+        <div class="about-card">
+            <h3 class="about-title">Mes Objectifs</h3>
+            <p class="about-description">
+                Devenir un ingénieur logiciel polyvalent, toujours prêt à relever de nouveaux défis
+                dans un monde en perpétuelle évolution.
+            </p>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
         <p>&copy; 2024 Mon Portfolio. Tous droits réservés. <a href="https://www.linkedin.com" target="_blank">LinkedIn</a> | <a href="https://github.com" target="_blank">GitHub</a></p>
     </footer>
 
+    <!-- Script -->
+    <script>
+        // Détection de l'élément actif basé sur l'URL
+        document.addEventListener("DOMContentLoaded", () => {
+            const navLinks = document.querySelectorAll("nav a");
+            navLinks.forEach(link => {
+                if (link.href === window.location.href) {
+                    link.classList.add("active");
+                }
+            });
+        });
+    </script>
 </body>
 </html>
