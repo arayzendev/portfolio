@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Portfolio - À propos</title>
+    <title>Contact</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
         /* Fond animé transparent */
@@ -26,6 +26,8 @@
         }
 
         nav a {
+            position: relative;
+            display: inline-block;
             color: white; /* Lien en blanc */
             text-decoration: none;
             margin: 0 20px;
@@ -35,91 +37,105 @@
             transition: color 0.3s ease;
         }
 
-        nav a:hover {
-            color: #5D82EE; /* Bleu au survol */
+        /* Trait invisible par défaut */
+        nav a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #5D82EE; /* Nouveau bleu */
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
         }
 
-        /* Section À propos */
-        .about-card {
+        /* Affiche le trait au survol */
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Style de l'élément actif */
+        nav a.active {
+            color: #5D82EE; /* Nouveau bleu clair */
+        }
+
+        /* Affiche un trait sous l'élément actif */
+        nav a.active::after {
+            width: 100%;
+            background-color: #5D82EE;
+        }
+
+        /* Section de contact */
+        .contact-container {
             background-color: rgba(0, 0, 0, 0.7);
             color: white;
-            padding: 30px;
+            padding: 40px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
+            max-width: 600px;
+            margin: 150px auto; /* Centré avec un espace par rapport à la navbar */
         }
 
-        .about-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .about-title {
-            font-size: 2rem;
+        .contact-container h1 {
+            font-size: 2.5rem;
             font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .about-description {
-            font-size: 1rem;
             margin-bottom: 20px;
-        }
-
-        .about-link {
-            background-color: #5D82EE;
-            padding: 10px 20px;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-            margin-right: 10px; /* Espace entre les boutons */
-        }
-
-        .about-link:hover {
-            background-color: #4e72c6;
-        }
-
-        /* Mise en page de la section À propos */
-        .about-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 150px auto 100px;  /* Ajout de 150px de marge en haut pour éloigner de la navbar */
-            max-width: 1200px;
-            padding: 20px;
-        }
-
-        /* Boutons côte à côte */
-        .social-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 30px; /* Un peu d'espace au-dessus des boutons */
-        }
-
-        /* Footer positionné en bas */
-        footer {
-            background-color: #333;
-            color: white;
             text-align: center;
-            padding: 20px;
+        }
+
+        .contact-container input, 
+        .contact-container textarea {
             width: 100%;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
+            padding: 15px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
         }
 
-        footer a {
-            color: #5D82EE;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        footer a:hover {
+        .contact-container button {
+            background-color: #5D82EE;
             color: white;
+            padding: 12px 25px;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 5px 15px rgba(93, 130, 238, 0.3);
+            transition: background-color 0.3s, transform 0.2s;
+            cursor: pointer;
+            width: 100%;
         }
+
+        .contact-container button:hover {
+            background-color: #4e72c6;
+            transform: translateY(-3px);
+        }
+
+        /* Footer mis à jour */
+        footer {
+    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent harmonisé avec les cartes projet */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px; /* Espacement entre le contenu principal et le footer */
+    width: 100%;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2); /* Ombre subtile pour un effet élégant */
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+footer a {
+    color: #5D82EE; /* Couleur bleue harmonisée avec les liens principaux */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    color: white; /* Changement de couleur au survol */
+}
+
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -130,54 +146,31 @@
     <!-- Navbar -->
     <nav class="fixed w-full top-0 left-0 py-6">
         <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold">Alexandre</h1>
+            <h1 class="text-3xl font-bold">
+                Alexandre<span style="color: #5D82EE;">.</span>
+            </h1>
             <ul class="flex space-x-8">
-                <li><a href="index.html" class="hover:text-blue-500">Accueil</a></li>
-                <li><a href="projets.html" class="hover:text-blue-500">Projets</a></li>
-                <li><a href="#about" class="hover:text-blue-500">À Propos</a></li>
-                <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
+                <li><a href="#home" class="hover:text-blue-500 active">Accueil</a></li>
+                <li><a href="proj.html" class="hover:text-blue-500">Projets</a></li>
+                <li><a href="Iam.html" class="hover:text-blue-500">À Propos</a></li>
+                <li><a href="contact.html" class="hover:text-blue-500">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Section À propos -->
-    <section id="about" class="about-container">
-        <div class="about-card">
-            <h3 class="about-title">Qui suis-je ?</h3>
-            <p class="about-description">
-                Je suis un étudiant passionné par la programmation et les technologies web. Mon objectif est de créer des applications robustes et intuitives. 
-                Actuellement en deuxième année à CESI, je me spécialise dans les langages comme C++, Python, et le développement web.
-            </p>
-            <div class="social-buttons">
-                <a href="https://github.com/alexandre-lin" class="about-link" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/alexandre-lin" class="about-link" target="_blank">LinkedIn</a>
-            </div>
-        </div>
-
-        <div class="about-card">
-            <h3 class="about-title">Mon Parcours</h3>
-            <p class="about-description">
-                Depuis mon plus jeune âge, j'ai toujours été fasciné par l'informatique. Après un BAC en sciences et technologies du numérique, j'ai décidé de me lancer dans une carrière d'ingénieur logiciel. 
-                Grâce à mes études à CESI, j'ai acquis une solide base théorique et pratique qui me permet de concevoir des solutions innovantes.
-            </p>
-            <div class="social-buttons">
-                <a href="https://github.com/alexandre-lin" class="about-link" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/alexandre-lin" class="about-link" target="_blank">LinkedIn</a>
-            </div>
-        </div>
-
-        <div class="about-card">
-            <h3 class="about-title">Mes Compétences</h3>
-            <p class="about-description">
-                Je maîtrise plusieurs langages de programmation tels que C++, Python, HTML/CSS, et JavaScript. De plus, je suis familiarisé avec des outils et technologies comme Git, SQL, et Node.js.
-                Je suis toujours à la recherche de nouveaux défis pour enrichir mes compétences et développer des projets ambitieux.
-            </p>
-            <div class="social-buttons">
-                <a href="https://github.com/alexandre-lin" class="about-link" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/alexandre-lin" class="about-link" target="_blank">LinkedIn</a>
-            </div>
-        </div>
-    </section>
+    <!-- Section de contact -->
+    <div class="contact-container">
+        <h1>Me Contacter</h1>
+        <form>
+            <label for="name">Nom complet</label>
+            <input type="text" id="name" name="name" placeholder="Votre nom" required>
+            <label for="email">Adresse e-mail</label>
+            <input type="email" id="email" name="email" placeholder="Votre email" required>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Votre message" rows="5" required></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+    </div>
 
     <!-- Footer -->
     <footer>
