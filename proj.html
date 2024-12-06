@@ -26,6 +26,7 @@
         }
 
         nav a {
+            position: relative;
             color: white; /* Lien en blanc */
             text-decoration: none;
             margin: 0 20px;
@@ -35,8 +36,32 @@
             transition: color 0.3s ease;
         }
 
-        nav a:hover {
-            color: #5D82EE; /* Bleu au survol */
+        /* Trait invisible par défaut */
+        nav a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #5D82EE; /* Bleu */
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        /* Affiche le trait au survol */
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Style de l'élément actif */
+        nav a.active {
+            color: #5D82EE; /* Nouveau bleu clair */
+        }
+
+        /* Affiche un trait sous l'élément actif */
+        nav a.active::after {
+            width: 100%;
+            background-color: #5D82EE;
         }
 
         /* Section projet avec encadrés */
@@ -91,27 +116,6 @@
             padding: 20px;
         }
 
-        /* Bouton d'appel à l'action */
-        .cta-button {
-            display: inline-block;
-            background-color: #5D82EE;
-            color: white;
-            padding: 12px 25px;
-            font-weight: bold;
-            border-radius: 5px;
-            margin-top: 2rem;
-            transition: background-color 0.3s, color 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            box-shadow: 0 5px 15px rgba(93, 130, 238, 0.3);
-        }
-
-        .cta-button:hover {
-            background-color: #4e72c6;
-            color: black;
-            box-shadow: 0 5px 20px rgba(93, 130, 238, 0.5);
-        }
-
         /* Footer positionné en bas */
         footer {
             background-color: #00000047;
@@ -142,7 +146,9 @@
     <!-- Navbar -->
     <nav class="fixed w-full top-0 left-0 py-6">
         <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold">Alexandre</h1>
+            <h1 class="text-3xl font-bold">
+                Alexandre<span style="color: #5D82EE;">.</span>
+            </h1>
             <ul class="flex space-x-8">
                 <li><a href="index.html" class="hover:text-blue-500">Accueil</a></li>
                 <li><a href="proj.html" class="hover:text-blue-500">Projets</a></li>
@@ -187,11 +193,22 @@
         </div>
     </section>
 
-
     <!-- Footer -->
     <footer>
         <p>&copy; 2024 Mon Portfolio. Tous droits réservés. <a href="https://www.linkedin.com" target="_blank">LinkedIn</a> | <a href="https://github.com" target="_blank">GitHub</a></p>
     </footer>
 
+    <!-- Script -->
+    <script>
+        // Détection de l'élément actif basé sur l'URL
+        document.addEventListener("DOMContentLoaded", () => {
+            const navLinks = document.querySelectorAll("nav a");
+            navLinks.forEach(link => {
+                if (link.href === window.location.href) {
+                    link.classList.add("active");
+                }
+            });
+        });
+    </script>
 </body>
 </html>
